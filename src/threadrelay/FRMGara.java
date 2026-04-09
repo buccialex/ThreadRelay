@@ -9,7 +9,7 @@ package threadrelay;
  * @author bucci.alex
  */
 public class FRMGara extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FRMGara.class.getName());
 
     /**
@@ -143,18 +143,26 @@ public class FRMGara extends javax.swing.JFrame {
 
         btnAvvia.setText("Avvia");
         btnAvvia.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAvvia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvviaActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAvvia, new java.awt.GridBagConstraints());
 
         btnSospendi.setText("Sospendi");
         btnSospendi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSospendi.setEnabled(false);
         jPanel1.add(btnSospendi, new java.awt.GridBagConstraints());
 
         btnRiprendi.setText("Riprendi");
         btnRiprendi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRiprendi.setEnabled(false);
         jPanel1.add(btnRiprendi, new java.awt.GridBagConstraints());
 
         btnFerma.setText("Ferma");
         btnFerma.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnFerma.setEnabled(false);
         jPanel1.add(btnFerma, new java.awt.GridBagConstraints());
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
@@ -180,6 +188,21 @@ public class FRMGara extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaActionPerformed
+        btnSospendi.setEnabled(true);
+        btnFerma.setEnabled(true);
+
+        Corridore c;
+        Testimone test;
+        Thread t;
+
+        t = new Thread(c = new Corridore());
+        t.start();
+        
+        
+
+    }//GEN-LAST:event_btnAvviaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,7 +212,7 @@ public class FRMGara extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         //</editor-fold>
 
         /* Create and display the form */

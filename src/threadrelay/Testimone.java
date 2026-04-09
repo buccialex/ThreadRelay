@@ -10,22 +10,25 @@ package threadrelay;
  */
 public class Testimone {
     
-    private boolean preso = false;
-    private Corridore c;
+    private boolean preso = true;
+    
     
     public Testimone(){
-        c = new Corridore();
+        
     }
     
-    public synchronized void corsa(){
-        while(!preso){
+    public synchronized void corsa(Corridore c){
+        while(preso){
             try {
                 c.wait();
+                
             } catch (InterruptedException ex) {
                 
             }
         }
+        preso = false;
         c.notify();
+        
     }
 
     public boolean isPreso() {

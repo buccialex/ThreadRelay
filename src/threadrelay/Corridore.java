@@ -11,19 +11,20 @@ package threadrelay;
 public class Corridore implements Runnable {
 
     private int stato = 0;
-    private Testimone t;
+    private Testimone t = new Testimone();
 
     public Corridore() {
-        t = new Testimone();
+
     }
 
     @Override
     public void run() {
-        t.setPreso(true);
+
+        
         while (stato < 100) {
-            if (stato == 90) {
-                t.setPreso(false);
-            }
+
+            t.corsa(this);
+
         }
     }
 
@@ -42,7 +43,5 @@ public class Corridore implements Runnable {
     public void setT(Testimone t) {
         this.t = t;
     }
-    
-    
 
 }
