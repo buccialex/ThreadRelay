@@ -8,21 +8,23 @@ package threadrelay;
  *
  * @author Bux
  */
-public class Corridore implements Runnable{
+public class Corridore implements Runnable {
+
     private int stato = 0;
-    
-    public Corridore(){
-        
+    private Testimone t;
+
+    public Corridore() {
+        t = new Testimone();
     }
 
     @Override
     public void run() {
-        while(stato < 100){
-            if(stato == 90){
-                
+        t.setPreso(true);
+        while (stato < 100) {
+            if (stato == 90) {
+                t.setPreso(false);
             }
         }
     }
-    
-    
+
 }
