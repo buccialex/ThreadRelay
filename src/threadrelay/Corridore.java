@@ -27,4 +27,22 @@ public class Corridore implements Runnable {
         }
     }
 
+    public int getStato() {
+        return stato;
+    }
+
+    public void setStato(int stato) {
+        this.stato = stato;
+    }
+
+    public Testimone getT() {
+        return t;
+    }
+
+    public void setT(Testimone t) {
+        this.t = t;
+    }
+    
+    
+
 }

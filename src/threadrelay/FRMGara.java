@@ -42,27 +42,27 @@ public class FRMGara extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblStato1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblStato2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblStato3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblStato4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        cmbVelocita = new javax.swing.JComboBox<>();
+        btnAvvia = new javax.swing.JButton();
+        btnSospendi = new javax.swing.JButton();
+        btnRiprendi = new javax.swing.JButton();
+        btnFerma = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
-        jProgressBar3 = new javax.swing.JProgressBar();
-        jProgressBar4 = new javax.swing.JProgressBar();
+        pbCorridore1 = new javax.swing.JProgressBar();
+        pbCorridore2 = new javax.swing.JProgressBar();
+        pbCorridore3 = new javax.swing.JProgressBar();
+        pbCorridore4 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Relay Runners");
@@ -80,10 +80,10 @@ public class FRMGara extends javax.swing.JFrame {
         jLabel1.setText("Runner 1");
         jPanel5.add(jLabel1);
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel2.setText("0");
-        jPanel5.add(jLabel2);
+        lblStato1.setForeground(new java.awt.Color(0, 0, 0));
+        lblStato1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblStato1.setText("0");
+        jPanel5.add(lblStato1);
 
         jPanel2.add(jPanel5);
 
@@ -95,10 +95,10 @@ public class FRMGara extends javax.swing.JFrame {
         jLabel3.setText("Runner 2");
         jPanel6.add(jLabel3);
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel4.setText("0");
-        jPanel6.add(jLabel4);
+        lblStato2.setForeground(new java.awt.Color(0, 0, 0));
+        lblStato2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblStato2.setText("0");
+        jPanel6.add(lblStato2);
 
         jPanel2.add(jPanel6);
 
@@ -110,10 +110,10 @@ public class FRMGara extends javax.swing.JFrame {
         jLabel5.setText("Runner 3");
         jPanel7.add(jLabel5);
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel6.setText("0");
-        jPanel7.add(jLabel6);
+        lblStato3.setForeground(new java.awt.Color(0, 0, 0));
+        lblStato3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblStato3.setText("0");
+        jPanel7.add(lblStato3);
 
         jPanel2.add(jPanel7);
 
@@ -125,10 +125,10 @@ public class FRMGara extends javax.swing.JFrame {
         jLabel7.setText("Runner 4");
         jPanel4.add(jLabel7);
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel8.setText("0");
-        jPanel4.add(jLabel8);
+        lblStato4.setForeground(new java.awt.Color(0, 0, 0));
+        lblStato4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblStato4.setText("0");
+        jPanel4.add(lblStato4);
 
         jPanel2.add(jPanel4);
 
@@ -137,43 +137,43 @@ public class FRMGara extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Slow", "Regular", "Fast" }));
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jComboBox1, new java.awt.GridBagConstraints());
+        cmbVelocita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Slow", "Regular", "Fast" }));
+        cmbVelocita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(cmbVelocita, new java.awt.GridBagConstraints());
 
-        jButton1.setText("Avvia");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jButton1, new java.awt.GridBagConstraints());
+        btnAvvia.setText("Avvia");
+        btnAvvia.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(btnAvvia, new java.awt.GridBagConstraints());
 
-        jButton2.setText("Sospendi");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jButton2, new java.awt.GridBagConstraints());
+        btnSospendi.setText("Sospendi");
+        btnSospendi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(btnSospendi, new java.awt.GridBagConstraints());
 
-        jButton3.setText("Riprendi");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jButton3, new java.awt.GridBagConstraints());
+        btnRiprendi.setText("Riprendi");
+        btnRiprendi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(btnRiprendi, new java.awt.GridBagConstraints());
 
-        jButton4.setText("Ferma");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jButton4, new java.awt.GridBagConstraints());
+        btnFerma.setText("Ferma");
+        btnFerma.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(btnFerma, new java.awt.GridBagConstraints());
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.GridLayout(4, 1, 10, 5));
 
-        jProgressBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel3.add(jProgressBar1);
+        pbCorridore1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        pbCorridore1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel3.add(pbCorridore1);
 
-        jProgressBar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        jPanel3.add(jProgressBar2);
+        pbCorridore2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        jPanel3.add(pbCorridore2);
 
-        jProgressBar3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        jPanel3.add(jProgressBar3);
+        pbCorridore3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        jPanel3.add(pbCorridore3);
 
-        jProgressBar4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        jPanel3.add(jProgressBar4);
+        pbCorridore4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        jPanel3.add(pbCorridore4);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -197,19 +197,15 @@ public class FRMGara extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnAvvia;
+    private javax.swing.JButton btnFerma;
+    private javax.swing.JButton btnRiprendi;
+    private javax.swing.JButton btnSospendi;
+    private javax.swing.JComboBox<String> cmbVelocita;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -217,9 +213,13 @@ public class FRMGara extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
-    private javax.swing.JProgressBar jProgressBar3;
-    private javax.swing.JProgressBar jProgressBar4;
+    private javax.swing.JLabel lblStato1;
+    private javax.swing.JLabel lblStato2;
+    private javax.swing.JLabel lblStato3;
+    private javax.swing.JLabel lblStato4;
+    private javax.swing.JProgressBar pbCorridore1;
+    private javax.swing.JProgressBar pbCorridore2;
+    private javax.swing.JProgressBar pbCorridore3;
+    private javax.swing.JProgressBar pbCorridore4;
     // End of variables declaration//GEN-END:variables
 }
