@@ -9,36 +9,28 @@ package threadrelay;
  * @author Bux
  */
 public class Testimone {
-    
-    private boolean preso = true;
-    
-    
-    public Testimone(){
-        
+
+    private int corrente = 1;
+
+    public Testimone() {
+
     }
-    
-    public synchronized void corsa(Corridore c){
-        while(preso){
+
+    public synchronized void parti(int numero) {
+        while (corrente != numero) {
             try {
-                c.wait();
-                
+                wait();
+
             } catch (InterruptedException ex) {
-                
+
             }
         }
-        preso = false;
-        c.notify();
-        
+
     }
 
-    public boolean isPreso() {
-        return preso;
+    public synchronized void passaTestimone(int successivo) {
+        corrente = successivo;
+        notifyAll();
     }
 
-    public void setPreso(boolean preso) {
-        this.preso = preso;
-    }
-    
-    
-    
 }

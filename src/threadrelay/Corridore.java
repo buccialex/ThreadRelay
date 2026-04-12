@@ -9,39 +9,30 @@ package threadrelay;
  * @author Bux
  */
 public class Corridore implements Runnable {
-
+    
+    private int numero;
     private int stato = 0;
     private Testimone t = new Testimone();
-
+    
     public Corridore() {
-
+        
     }
-
+    
     @Override
     public void run() {
-
         
         while (stato < 100) {
-
-            t.corsa(this);
-
+            
+            t.parti(numero);
+            while (stato < 99) {
+                stato++;
+                
+                if (stato == 90 && numero < 4) {
+                    t.passaTestimone(numero++);
+                }
+            }
+            
         }
     }
-
-    public int getStato() {
-        return stato;
-    }
-
-    public void setStato(int stato) {
-        this.stato = stato;
-    }
-
-    public Testimone getT() {
-        return t;
-    }
-
-    public void setT(Testimone t) {
-        this.t = t;
-    }
-
+    
 }
