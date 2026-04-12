@@ -4,6 +4,8 @@
  */
 package threadrelay;
 
+import javax.swing.Timer;
+
 /**
  *
  * @author bucci.alex
@@ -191,19 +193,21 @@ public class FRMGara extends javax.swing.JFrame {
     private void btnAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaActionPerformed
         btnSospendi.setEnabled(true);
         btnFerma.setEnabled(true);
-
-        Corridore c;
-        Thread t;
-
-        t = new Thread(c = new Corridore());
-        t.start();
         
-        
+        pbCorridore1.setValue(0);
+        lblStato1.setText("0");
+        pbCorridore2.setValue(0);
+        lblStato2.setText("0");
+        pbCorridore3.setValue(0);
+        lblStato3.setText("0");
+        pbCorridore4.setValue(0);
+        lblStato4.setText("0");
 
     }//GEN-LAST:event_btnAvviaActionPerformed
 
-    
-
+    private Corridore c1, c2, c3, c4;
+    private Testimone testimone;
+    private Timer timer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvvia;
     private javax.swing.JButton btnFerma;
