@@ -30,6 +30,24 @@ public class FRMGara extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         this.setLocationRelativeTo(this);
+
+        jPanel3.remove(pbCorridore1);
+        jPanel3.remove(pbCorridore2);
+        jPanel3.remove(pbCorridore3);
+        jPanel3.remove(pbCorridore4);
+
+        pbCorridore1 = new CorridoreProgressBar("🏃");
+        pbCorridore2 = new CorridoreProgressBar("🏃");
+        pbCorridore3 = new CorridoreProgressBar("🏃");
+        pbCorridore4 = new CorridoreProgressBar("🏃");
+
+        jPanel3.add(pbCorridore1);
+        jPanel3.add(pbCorridore2);
+        jPanel3.add(pbCorridore3);
+        jPanel3.add(pbCorridore4);
+
+        jPanel3.revalidate();
+        jPanel3.repaint();
     }
 
     /**
@@ -155,16 +173,31 @@ public class FRMGara extends javax.swing.JFrame {
         btnSospendi.setText("Sospendi");
         btnSospendi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSospendi.setEnabled(false);
+        btnSospendi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSospendiActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSospendi, new java.awt.GridBagConstraints());
 
         btnRiprendi.setText("Riprendi");
         btnRiprendi.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRiprendi.setEnabled(false);
+        btnRiprendi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRiprendiActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRiprendi, new java.awt.GridBagConstraints());
 
         btnFerma.setText("Ferma");
         btnFerma.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnFerma.setEnabled(false);
+        btnFerma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFermaActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnFerma, new java.awt.GridBagConstraints());
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
@@ -193,7 +226,8 @@ public class FRMGara extends javax.swing.JFrame {
     private void btnAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaActionPerformed
         btnSospendi.setEnabled(true);
         btnFerma.setEnabled(true);
-        
+        btnRiprendi.setEnabled(false);
+
         pbCorridore1.setValue(0);
         lblStato1.setText("0");
         pbCorridore2.setValue(0);
@@ -203,10 +237,69 @@ public class FRMGara extends javax.swing.JFrame {
         pbCorridore4.setValue(0);
         lblStato4.setText("0");
 
+        int velocita;
+        velocita = switch (cmbVelocita.getSelectedIndex()) {
+            case 0 ->
+                80;
+            case 1 ->
+                40;
+            default ->
+                15;
+        };
+
+        gara = new Gara(velocita);
+        gara.avvia();
+
+        timer = new javax.swing.Timer(50, e -> {
+            pbCorridore1.setValue(gara.getC1().getStato());
+            lblStato1.setText(String.valueOf(gara.getC1().getStato()));
+
+            pbCorridore2.setValue(gara.getC2().getStato());
+            lblStato2.setText(String.valueOf(gara.getC2().getStato()));
+
+            pbCorridore3.setValue(gara.getC3().getStato());
+            lblStato3.setText(String.valueOf(gara.getC3().getStato()));
+
+            pbCorridore4.setValue(gara.getC4().getStato());
+            lblStato4.setText(String.valueOf(gara.getC4().getStato()));
+
+            if (gara.getC4().getStato() >= 99) {
+
+                timer.stop();
+
+                btnAvvia.setEnabled(true);
+                cmbVelocita.setEnabled(true);
+                btnSospendi.setEnabled(false);
+                btnRiprendi.setEnabled(false);
+                btnFerma.setEnabled(false);
+            }
+        });
+        timer.start();
     }//GEN-LAST:event_btnAvviaActionPerformed
 
-    private Corridore c1, c2, c3, c4;
-    private Testimone testimone;
+    private void btnSospendiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSospendiActionPerformed
+        gara.sospendi();
+        btnSospendi.setEnabled(false);
+        btnRiprendi.setEnabled(true);
+    }//GEN-LAST:event_btnSospendiActionPerformed
+
+    private void btnRiprendiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiprendiActionPerformed
+        gara.riprendi();
+        btnRiprendi.setEnabled(false);
+        btnSospendi.setEnabled(true);
+    }//GEN-LAST:event_btnRiprendiActionPerformed
+
+    private void btnFermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFermaActionPerformed
+        gara.ferma();
+        timer.stop();
+        btnAvvia.setEnabled(true);
+        cmbVelocita.setEnabled(true);
+        btnSospendi.setEnabled(false);
+        btnRiprendi.setEnabled(false);
+        btnFerma.setEnabled(false);
+    }//GEN-LAST:event_btnFermaActionPerformed
+
+    private Gara gara;
     private Timer timer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvvia;

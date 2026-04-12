@@ -11,18 +11,19 @@ package threadrelay;
 public class Testimone {
 
     private int corrente = 1;
+    private boolean sospeso = false;
+    private boolean fermato = false;
 
     public Testimone() {
 
     }
 
     public synchronized void parti(int numero) {
-        while (corrente != numero) {
+        while (corrente != numero || sospeso || fermato) {
             try {
                 wait();
-
-            } catch (InterruptedException ex) {
-
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
         }
 
@@ -31,6 +32,35 @@ public class Testimone {
     public synchronized void passaTestimone(int successivo) {
         corrente = successivo;
         notifyAll();
+    }
+
+    public synchronized void aspettaSeSospeso() {
+        while (sospeso) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+
+    public synchronized void sospendi() {
+        sospeso = true;
+    }
+
+    public synchronized void riprendi() {
+        sospeso = false;
+        notifyAll();
+    }
+
+    public synchronized void ferma() {
+        fermato = true;
+        sospeso = false;
+        notifyAll(); // sveglia tutti così escono dal while
+    }
+
+    public boolean isFermato() {
+        return fermato;
     }
 
 }
