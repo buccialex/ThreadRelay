@@ -12,14 +12,26 @@ import java.awt.*;
  */
 public class CorridoreProgressBar extends javax.swing.JProgressBar{
 
+    /**
+     * attributi
+     * emoji: stringa da utilizzare nella progressbar (in questo caso l'emoji del corridore)
+     */
     private String emoji;
 
+    /**
+     * costruttore della progressbar
+     * @param emoji stringa da utilizzare
+     */
     public CorridoreProgressBar(String emoji) {
         this.emoji = emoji;
         setMaximum(100);
         setMinimum(0);
     }
 
+    /**
+     * override del metodo paintcomponent per modificare il modo in cui viene disegnata la progressbar
+     * @param g componente grafico
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -37,10 +49,18 @@ public class CorridoreProgressBar extends javax.swing.JProgressBar{
         g2.drawString(emoji, x, y);
     }
 
+    /**
+     * getter della stringa
+     * @return stringa
+     */
     public String getEmoji() {
         return emoji;
     }
 
+    /**
+     * setter della stringa
+     * @param emoji stringa da visualizzare
+     */
     public void setEmoji(String emoji) {
         this.emoji = emoji;
     }

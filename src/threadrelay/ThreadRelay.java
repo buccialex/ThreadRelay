@@ -14,7 +14,9 @@ public class ThreadRelay {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // crea la finestra
         FRMGara f = new FRMGara();
+        // mostra la finestra
         f.setVisible(true);
     }
     

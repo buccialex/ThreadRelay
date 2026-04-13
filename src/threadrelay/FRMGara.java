@@ -19,6 +19,7 @@ public class FRMGara extends javax.swing.JFrame {
      */
     public FRMGara() {
         initComponents();
+        // questa parte di codice serve a cambiare lo stile della form
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -29,23 +30,28 @@ public class FRMGara extends javax.swing.JFrame {
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
+        // questa istrzione serve a posizionare la finestra al centro dello schermo
         this.setLocationRelativeTo(this);
 
+        // rimuovo le progressbar posizionate da gui per far si di avere l'emoji del corridore
         jPanel3.remove(pbCorridore1);
         jPanel3.remove(pbCorridore2);
         jPanel3.remove(pbCorridore3);
         jPanel3.remove(pbCorridore4);
 
+        // creo le nuove progressbar usando il metodo paint component modificato
         pbCorridore1 = new CorridoreProgressBar("🏃");
         pbCorridore2 = new CorridoreProgressBar("🏃");
         pbCorridore3 = new CorridoreProgressBar("🏃");
         pbCorridore4 = new CorridoreProgressBar("🏃");
 
+        // aggiungo le nuove pb al panel
         jPanel3.add(pbCorridore1);
         jPanel3.add(pbCorridore2);
         jPanel3.add(pbCorridore3);
         jPanel3.add(pbCorridore4);
 
+        // ridisegno il panel
         jPanel3.revalidate();
         jPanel3.repaint();
     }
@@ -253,6 +259,7 @@ public class FRMGara extends javax.swing.JFrame {
         gara = new Gara(velocita);
         gara.avvia();
 
+        // timer per la grafica che aggiorna ogni 50 ms
         timer = new javax.swing.Timer(50, e -> {
             pbCorridore1.setValue(gara.getC1().getStato());
             lblStato1.setText(String.valueOf(gara.getC1().getStato()));
@@ -302,6 +309,11 @@ public class FRMGara extends javax.swing.JFrame {
         btnFerma.setEnabled(false);
     }//GEN-LAST:event_btnFermaActionPerformed
 
+    /**
+     * attributi:
+     * gara = gara da cui prendere i valori da mostrare nella grafica
+     * timer = timer usato per l'aggiornamento della grafica
+     */
     private Gara gara;
     private Timer timer;
     // Variables declaration - do not modify//GEN-BEGIN:variables

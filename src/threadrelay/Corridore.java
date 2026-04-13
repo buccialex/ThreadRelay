@@ -10,17 +10,33 @@ package threadrelay;
  */
 public class Corridore implements Runnable {
 
+    /**
+     * attributi:
+     * numero = numero del corridore
+     * stato = percentuale di avanzamento
+     * t = Testimone (classe monitor)
+     * velocita = velocità del corridore
+     */
     private int numero;
     private int stato = 0;
     private Testimone t;
     private int velocita;
 
+    /**
+     * costruttore di corridori
+     * @param numero numero del corridore
+     * @param testimone monitor 
+     * @param velocita velocità
+     */
     public Corridore(int numero, Testimone testimone, int velocita) {
         this.numero = numero;
         t = testimone;
         this.velocita = velocita;
     }
 
+    /**
+     * override del metodo run del thread
+     */
     @Override
     public void run() {
         t.parti(numero); 
@@ -30,6 +46,7 @@ public class Corridore implements Runnable {
             t.aspettaSeSospeso();
             stato++;
 
+            // fa partire il corridore successivo quando arriva a 90
             if (stato == 90 && numero < 4) {
                 t.passaTestimone(numero + 1); 
             }
@@ -45,10 +62,18 @@ public class Corridore implements Runnable {
 
     }
 
+    /**
+     * getter dello stato
+     * @return lo stato
+     */
     public int getStato() {
         return stato;
     }
 
+    /**
+     * getter della velocità
+     * @return velocita
+     */
     public int getVelocita() {
         return velocita;
     }
