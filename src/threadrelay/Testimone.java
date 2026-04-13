@@ -56,7 +56,7 @@ public class Testimone {
     public synchronized void ferma() {
         fermato = true;
         sospeso = false;
-        notifyAll(); // sveglia tutti così escono dal while
+        notifyAll(); 
     }
 
     public boolean isFermato() {

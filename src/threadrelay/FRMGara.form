@@ -226,7 +226,7 @@
               </StringArray>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Cursore predefinito"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -242,7 +242,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Avvia"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Cursore predefinito"/>
             </Property>
           </Properties>
           <Events>
@@ -258,7 +258,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sospendi"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Cursore predefinito"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -275,7 +275,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Riprendi"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Cursore predefinito"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -292,7 +292,7 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ferma"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Cursore predefinito"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -336,7 +336,7 @@
               </Border>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Cursore predefinito"/>
             </Property>
           </Properties>
         </Component>

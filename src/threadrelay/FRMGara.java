@@ -230,10 +230,13 @@ public class FRMGara extends javax.swing.JFrame {
 
         pbCorridore1.setValue(0);
         lblStato1.setText("0");
+
         pbCorridore2.setValue(0);
         lblStato2.setText("0");
+
         pbCorridore3.setValue(0);
         lblStato3.setText("0");
+
         pbCorridore4.setValue(0);
         lblStato4.setText("0");
 
