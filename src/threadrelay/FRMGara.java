@@ -263,18 +263,28 @@ public class FRMGara extends javax.swing.JFrame {
         timer = new javax.swing.Timer(50, e -> {
             pbCorridore1.setValue(gara.getC1().getStato());
             lblStato1.setText(String.valueOf(gara.getC1().getStato()));
+            if(gara.getC1().getStato() >= 99){
+                lblStato1.setText("fine");
+            }
 
             pbCorridore2.setValue(gara.getC2().getStato());
             lblStato2.setText(String.valueOf(gara.getC2().getStato()));
+            if(gara.getC2().getStato() >= 99){
+                lblStato2.setText("fine");
+            }
 
             pbCorridore3.setValue(gara.getC3().getStato());
             lblStato3.setText(String.valueOf(gara.getC3().getStato()));
+            if(gara.getC3().getStato() >= 99){
+                lblStato3.setText("fine");
+            }
 
             pbCorridore4.setValue(gara.getC4().getStato());
             lblStato4.setText(String.valueOf(gara.getC4().getStato()));
+            
 
             if (gara.getC4().getStato() >= 99) {
-
+                lblStato4.setText("fine");
                 timer.stop();
 
                 btnAvvia.setEnabled(true);
